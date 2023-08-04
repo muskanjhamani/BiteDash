@@ -12,10 +12,12 @@ export default function Home() {
         <NavBar />
       </div>
       <div>
-        <Carousel/>
+        <Carousel />
       </div>
-      <div>
-        <Card/>
+      <div className='m-2'>
+        <Card />
+        <Card />
+        <Card />
       </div>
       <div>
         <Footer />
