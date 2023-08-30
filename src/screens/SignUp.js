@@ -8,16 +8,28 @@ export default function SignUp() {
     password: "",
     geolocation: "",
   });
-
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = fetch("http://localhost:5000/api/createUser", {
+    const response = await fetch("http://localhost:5000/api/createUser", {
       method: "POST",
-      header: {
+      headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(),
+      body: JSON.stringify({
+        name: credentials.name,
+        email: credentials.email,
+        password: credentials.password,
+        location: credentials.geolocation,
+      }),
     });
+    const json = await response.json();
+    console.log(json);
+    if (!json.success) {
+      alert("Enter valid credentials");
+    }
   };
   return (
     <>
@@ -27,7 +39,13 @@ export default function SignUp() {
             <label for="name" className="form-label">
               Name
             </label>
-            <input type="text" className="form-control" />
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              value={credentials.name}
+              onChange={onChange}
+            />
           </div>
           <div className="mb-3">
             <label for="exampleInputEmail1" className="form-label">
@@ -38,19 +56,38 @@ export default function SignUp() {
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              name="email"
+              value={credentials.email}
+              onChange={onChange}
             />
             <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
           <div className="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label for="password" className="form-label">
               Password
             </label>
             <input
               type="password"
               className="form-control"
               id="exampleInputPassword1"
+              name="password"
+              value={credentials.password}
+              onChange={onChange}
+            />
+          </div>
+          <div className="mb-3">
+            <label for="geolocation" className="form-label">
+              Location
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="exampleInputPassword1"
+              name="geolocation"
+              value={credentials.geolocation}
+              onChange={onChange}
             />
           </div>
           <button type="submit" className="m-3 btn btn-success">

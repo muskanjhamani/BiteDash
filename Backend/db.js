@@ -18,13 +18,22 @@ async function logAllData() {
         // Access the MongoDB collection directly
         const collectionName = 'food_items'; // Replace 'your-collection' with the name of your collection
         const collection = mongoose.connection.db.collection(collectionName);
-
+ 
         // Fetch all documents from the collection
-        // const allData = await collection.find({}).toArray();
+        global.food_items = await collection.find({}).toArray();
 
         // Log the data
         console.log('All data in the collection:');
-        // console.log(allData);
+        console.log(global.food_items);
+        
+        const foodCategoryCollection = mongoose.connection.db.collection('foodCategory');
+
+        // Fetch all documents from the collection
+        global.foodCategory = await foodCategoryCollection.find({}).toArray();
+
+        // Log the data
+        console.log('All data in the collection:');
+        console.log(global.foodCategory);
 
         // Close the MongoDB connection
         // mongoose.connection.close();
