@@ -52,7 +52,7 @@ export default function NavBar() {
                     aria-current="page"
                     to="/myOrder"
                   >
-                    My Orders
+                    Past Orders
                   </Link>
                 </li>
               ) : (

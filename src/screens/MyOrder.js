@@ -66,7 +66,7 @@ export default function MyOrder() {
                                                                     <div className='container w-100 p-0' style={{ height: "38px" }}>
                                                                         <span className='m-1'>{arrayData.qty}</span>
                                                                         <span className='m-1'>{arrayData.size}</span>
-                                                                        <span className='m-1'>{data}</span>
+                                                                        {/* <span className='m-1'>{data}</span> */}
                                                                         <div className=' d-inline ms-2 h-100 w-20 fs-5' >
                                                                             ₹{arrayData.price}/-
                                                                         </div>

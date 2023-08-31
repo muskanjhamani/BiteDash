@@ -1,9 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react'
-import { useCart, useDispatchCart} from './ContextReducer';
+import React, { useEffect, useRef, useState } from 'react'
+import { useCart, useDispatchCart } from './ContextReducer';
 
 export default function Card(props) {
 
-    let dispatch = useDispatchCart(); 
+    let dispatch = useDispatchCart();
     let data = useCart();
     const priceref = useRef();
     let options = props.options;
@@ -15,12 +15,12 @@ export default function Card(props) {
     useEffect(() => {
         setSize(priceref.current.value);
     }, [])
-    
+
 
 
     const handleAddToCart = async () => {
         let food = [];
-        for(const item of data){
+        for (const item of data) {
             if (item.id === props.foodItem._id) {
                 food = item;
                 break;
@@ -28,15 +28,15 @@ export default function Card(props) {
         }
         if (food !== []) {
             if (food.size === size) {
-                await dispatch({ type: "UPDATE", id: props.foodItem._id, price : finalPrice, qty: qty })
+                await dispatch({ type: "UPDATE", id: props.foodItem._id, price: finalPrice, qty: qty })
                 return;
             }
-            else if (food.size!==size) {
+            else if (food.size !== size) {
                 await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: finalPrice, qty: qty, size: size });
                 return;
             }
             return;
-        } 
+        }
         await dispatch({ type: "ADD", id: props.foodItem._id, name: props.foodItem.name, price: finalPrice, qty: qty, size: size });
         // console.log(data);
         // console.log("add to cart");
@@ -45,12 +45,11 @@ export default function Card(props) {
     return (
         <div>
             <div>
-                <div className="card mt-3" style={{ "width": "18rem", "maxHeight": "450px" }}>
+                <div className="card mt-3" style={{ "width": "18rem", "maxHeight": "468px" }}>
                     <img src={props.foodItem.img} className="card-img-top h-10"
                         style={{ height: "180px", objectFit: "fill" }} alt="..." />
                     <div className="card-body">
                         <h5 className="card-title" style={{ "marginLeft": "10px" }}>{props.foodItem.name}</h5>
-                        <p className="card-text">This is text</p>
                         <div className='container w-100'>
                             <select className='m-2 h-100 bg-success text-white rounded' onChange={(e) => setQty(e.target.value)}>
                                 {Array.from(Array(6), (e, i) => {
@@ -72,7 +71,7 @@ export default function Card(props) {
                         </div>
                     </div>
                     <hr />
-                    <button className={'btn btn-success justify-center ms-2'} onClick={handleAddToCart}> Add to Cart</button>
+                    <button className={'btn btn-success ms-3 align-items-center'} style={{ "margin": " 0px 15px 15px" }} onClick={handleAddToCart}> Add to Cart</button>
                 </div>
             </div>
         </div>
