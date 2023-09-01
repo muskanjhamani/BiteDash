@@ -1,3 +1,9 @@
+MERN Stack Food Ordering Web App: Developed a dynamic and responsive food ordering web application using the MERN (MongoDB, Express.js, React, Node.js) stack, ensuring a seamless user experience.
+
+Automatic User Location Tracking: Implemented geolocation functionality to automatically detect and display the user's location, providing real-time restaurant recommendations and delivery options tailored to their vicinity.
+
+Secure User Authentication: Incorporated robust user authentication mechanisms, enabling users to create accounts, log in securely, and manage their profiles, enhancing the overall user experience while ensuring data privacy and security.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
