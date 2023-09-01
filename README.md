@@ -1,4 +1,4 @@
-MERN Stack Food Ordering Web App: Developed a dynamic and responsive food ordering web application using the MERN (MongoDB, Express.js, React, Node.js) stack, ensuring a seamless user experience.
+BITE DASH - Food Ordering Web App: Developed a dynamic and responsive food ordering web application using the MERN (MongoDB, Express.js, React, Node.js) stack, ensuring a seamless user experience.
 
 Automatic User Location Tracking: Implemented geolocation functionality to automatically detect and display the user's location, providing real-time restaurant recommendations and delivery options tailored to their vicinity.
 
